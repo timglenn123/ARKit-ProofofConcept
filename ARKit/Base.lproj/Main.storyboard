@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tM9-dc-dOi">
+                                <rect key="frame" x="113" y="103" width="149" height="58"/>
+                                <state key="normal" title="Test 3d Asset"/>
+                                <connections>
+                                    <action selector="showAssetScene:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xV6-vl-wJa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4M2-lU-83h">
+                                <rect key="frame" x="113" y="415" width="149" height="64"/>
+                                <state key="normal" title="Test Rugs"/>
+                                <connections>
+                                    <action selector="showPlaneScene:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mF1-cW-GdF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tM9-dc-dOi" secondAttribute="bottom" constant="506" id="EiH-G0-LI0"/>
+                            <constraint firstItem="4M2-lU-83h" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LNi-1L-feI"/>
+                            <constraint firstItem="tM9-dc-dOi" firstAttribute="width" secondItem="4M2-lU-83h" secondAttribute="width" id="Ukd-R8-XTt"/>
+                            <constraint firstItem="4M2-lU-83h" firstAttribute="centerX" secondItem="tM9-dc-dOi" secondAttribute="centerX" id="WpI-96-jM7"/>
+                            <constraint firstItem="4M2-lU-83h" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="395" id="aCm-3K-4pV"/>
+                            <constraint firstItem="4M2-lU-83h" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="113.5" id="gte-td-BWi"/>
+                            <constraint firstItem="tM9-dc-dOi" firstAttribute="height" secondItem="4M2-lU-83h" secondAttribute="height" constant="-6" id="rca-6h-MUZ"/>
+                            <constraint firstItem="4M2-lU-83h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="113" id="xJz-xa-de6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="114.69265367316342"/>
+        </scene>
+    </scenes>
+</document>
