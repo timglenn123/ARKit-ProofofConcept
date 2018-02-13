@@ -32,7 +32,7 @@ class FocalNode: SCNNode {
     
     private let colorMaterial: SCNMaterial = {
         let material = SCNMaterial()
-        material.diffuse.contents = UIColor.cyan
+        material.diffuse.contents = UIColor.yellow
         return material
     }()
     
@@ -73,6 +73,15 @@ class FocalNode: SCNNode {
         //rotate the node so the square is flat against the floor
         transform = SCNMatrix4MakeRotation(-Float.pi / 2.0, 1.0, 0.0, 0.0)
         
+    }
+    
+    public func setVertical(){
+        transform = SCNMatrix4MakeRotation(0.0 , 0.0 , 0.0, -10.0)
+    }
+    
+    public func setHorizontal(){
+          transform = SCNMatrix4MakeRotation(-Float.pi / 2.0, 1.0, 0.0, 0.0)
+
     }
     
     public func hide(){

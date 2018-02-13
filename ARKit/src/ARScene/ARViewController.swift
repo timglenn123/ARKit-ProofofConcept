@@ -28,7 +28,8 @@ import AudioToolbox.AudioServices
 
 enum DisplayMode {
     case unknown
-    case plane //plane mesh to apply image
+    case verticalPlane //plane mesh to apply image
+    case horizontalPlane
     case circle //circle mesh to apply image
     case sceneAsset //3d object
 }
@@ -49,12 +50,8 @@ enum DisplayMode {
     var objectFrozen: Bool = false
     var sceneFile: NSString!
 
-    let sessionConfiguration: ARWorldTrackingConfiguration = {
-        let config = ARWorldTrackingConfiguration()
-        config.planeDetection = .horizontal
-        return config
-    }()
-
+    var sessionConfiguration: ARWorldTrackingConfiguration!
+    
     var displayMode: DisplayMode = .unknown
     
     let feedbackGenerator: (notification: UINotificationFeedbackGenerator, impact: (light: UIImpactFeedbackGenerator, medium: UIImpactFeedbackGenerator, heavy: UIImpactFeedbackGenerator), selection: UISelectionFeedbackGenerator) = {
@@ -76,10 +73,7 @@ enum DisplayMode {
        self.dismiss(animated: true, completion: nil)
     }
 
-    public func test() -> String {
-        print("test!")
-        return "test!!! returned"
-    }
+  
     override func viewDidLoad() {
         super.viewDidLoad()
       
@@ -116,7 +110,29 @@ enum DisplayMode {
         modelNode.childNode(withName: "rug", recursively: true)?.geometry?.materials = [material]
         modelNode.scale = SCNVector3(0.01,0.01,0.01)
         modelNode.name = "objectNode"
-        displayMode = .plane
+        displayMode = .horizontalPlane
+        let config = ARWorldTrackingConfiguration()
+        config.planeDetection = .horizontal
+        self.sessionConfiguration = config
+
+    }
+    
+    public func createVerticalPlaneWithTexture(textureImage: UIImage!) {
+        //get the scene the model is stored in
+        let modelScene = SCNScene(named:"Models.scnassets/furniture/portrait.scn")
+        //get the model from the root node of the scn file and scale it down
+        let material = SCNMaterial()
+        material.diffuse.contents = textureImage
+        modelNode = modelScene?.rootNode
+        modelNode.geometry?.firstMaterial = material
+        modelNode.childNode(withName: "portrait", recursively: true)?.geometry?.materials = [material]
+        modelNode.scale = SCNVector3(0.001,0.001,0.001)
+        modelNode.name = "objectNode"
+        displayMode = .verticalPlane
+        let config = ARWorldTrackingConfiguration()
+        config.planeDetection = .vertical
+        self.sessionConfiguration = config
+
     }
     
     public func createSceneWithAsset(assetFilePath: String!){
@@ -126,6 +142,9 @@ enum DisplayMode {
         modelNode.name = "objectNode"
         modelNode.scale = SCNVector3(0.001,0.001,0.001)
         displayMode = .sceneAsset
+        let config = ARWorldTrackingConfiguration()
+        config.planeDetection = .horizontal
+        self.sessionConfiguration = config
     }
     
     private func createScene(){
@@ -135,6 +154,7 @@ enum DisplayMode {
         sceneView.automaticallyUpdatesLighting = true
         sceneView.autoenablesDefaultLighting = true
         sceneView.preferredFramesPerSecond = 60
+        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         sceneView.antialiasingMode = .multisampling4X
         screenCenter = view.center
         addLights()

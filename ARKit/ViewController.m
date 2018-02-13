@@ -36,8 +36,6 @@
     printf("showing asset scene\n");
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"ARScene" bundle:nil];
     ARViewController *controller = (ARViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ARScene"];
-    NSString *string = [controller test];
-    NSLog(@"inside objc %@", string);
     [controller createSceneWithAssetWithAssetFilePath:@"Models.scnassets/furniture/sofa.scn"];
     [self showViewController:controller sender:nil];
 }
@@ -47,12 +45,21 @@
     printf("showing plane (rug)\n");
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"ARScene" bundle:nil];
     ARViewController *controller = (ARViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ARScene"];
-    NSString *string = [controller test];
-    NSLog(@"inside objc %@", string);
     [controller createPlaneWithTextureWithTextureImage:[UIImage imageNamed:@"rug-2"]];
     [self showViewController:controller sender:nil];
 
 }
+
+
+- (IBAction)showVerticalPlaneScene:(id)sender {
+    printf("showing plane (portrait)\n");
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"ARScene" bundle:nil];
+    ARViewController *controller = (ARViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ARScene"];
+    [controller createVerticalPlaneWithTextureWithTextureImage:[UIImage imageNamed:@"korber"]];
+    [self showViewController:controller sender:nil];
+    
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];

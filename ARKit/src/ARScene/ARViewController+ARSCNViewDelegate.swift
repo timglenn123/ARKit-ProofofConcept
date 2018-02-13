@@ -27,15 +27,20 @@ import ARKit
 extension ARViewController: ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         //reports that a new anchor has been added to the scene
+        print("added anchor", anchor)
         guard focalNode == nil else { return }
         let node = FocalNode()
         node.name = "focalNode"
+        if displayMode == .verticalPlane {
+            node.setVertical()
+        }
+        
         sceneView.scene.rootNode.addChildNode(node)
         self.focalNode = node
 
         //hide the searching label once found an anchor
         DispatchQueue.main.async {
-            UIView.animate(withDuration: 0.5, animations: {
+            UIView.animate(withDuration: 0.2, animations: {
                 self.searchingLabel.alpha = 0.0
             }, completion: { _ in
                 self.searchingLabel.isHidden = true

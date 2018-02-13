@@ -89,7 +89,11 @@ extension ARViewController: UIGestureRecognizerDelegate {
                 print("object unfrozen")
                 let n = nodes[0]
                 hoverVisibility(show:true)
-                n.runAction(SCNAction.move(to: SCNVector3Make(n.position.x, n.position.y + 0.1 ,  n.position.z), duration: 0.2))
+                if displayMode == .verticalPlane{
+                    n.runAction(SCNAction.move(to: SCNVector3Make(n.position.x, n.position.y,  n.position.z + 0.005 ), duration: 0.2))
+                }else{
+                    n.runAction(SCNAction.move(to: SCNVector3Make(n.position.x, n.position.y + 0.1 ,  n.position.z), duration: 0.2))
+                }
                 feedbackGenerator.impact.light.impactOccurred()
             }else{
                 //drop the object onto the floor
@@ -97,12 +101,17 @@ extension ARViewController: UIGestureRecognizerDelegate {
                 objectFrozen = !objectFrozen
                 let n = nodes[0]
                 hoverVisibility(show:false)
-                n.runAction(SCNAction.move(to: SCNVector3Make(n.position.x, n.position.y - 0.1 ,  n.position.z), duration: 0.2))
+                if displayMode == .verticalPlane{
+                    n.runAction(SCNAction.move(to: SCNVector3Make(n.position.x, n.position.y,  n.position.z - 0.005 ), duration: 0.2))
+                }else{
+                    n.runAction(SCNAction.move(to: SCNVector3Make(n.position.x, n.position.y - 0.1 ,  n.position.z), duration: 0.2))
+                }
                 feedbackGenerator.impact.heavy.impactOccurred()
             }
         }else{
             print("initial object placed")
             focalNode?.hide()
+          
             let position = float3(transform.columns.3.x, transform.columns.3.y,transform.columns.3.z)
             //create a copy of the model and set its position and rotation
             modelNode.simdPosition = position
@@ -131,6 +140,8 @@ extension ARViewController: UIGestureRecognizerDelegate {
                 material?.emission.contents = UIColor.red
             SCNTransaction.commit()
         }
+        //turn off the dots
+        self.sceneView.debugOptions = []
     }
     
     private func addHoverNode(parentNode: SCNNode){
@@ -140,7 +151,7 @@ extension ARViewController: UIGestureRecognizerDelegate {
         let h = CGFloat(max.y - min.y)
         let l =  CGFloat( max.z - min.z)
        
-        if displayMode == .plane {
+        if displayMode == .horizontalPlane {
             let box = SCNBox(width: w + 3.0, height: 5, length: l + 3.0, chamferRadius: 2.0)
             box.firstMaterial?.diffuse.contents = UIColor.lightGray
             let boxNode = SCNNode(geometry:box)
@@ -149,12 +160,21 @@ extension ARViewController: UIGestureRecognizerDelegate {
             boxNode.opacity = 0.7
             hoverNode = boxNode
             parentNode.addChildNode(boxNode)
-        }else{
+        }else if displayMode == .sceneAsset {
             let box = SCNBox(width: w + 3.0, height: 10, length: l + 3.0, chamferRadius: 2.0)
             box.firstMaterial?.diffuse.contents = UIColor.lightGray
             let boxNode = SCNNode(geometry:box)
             boxNode.name = "hoverNode"
             boxNode.position =  SCNVector3Make(0, -Float(h) / 2 , -5)
+            boxNode.opacity = 0.7
+            hoverNode = boxNode
+            parentNode.addChildNode(boxNode)
+        }else if displayMode == .verticalPlane {
+            let box = SCNBox(width: w + 6.0, height: h + 6.0, length: l + 3.0, chamferRadius: 0.5)
+            box.firstMaterial?.diffuse.contents = UIColor.lightGray
+            let boxNode = SCNNode(geometry:box)
+            boxNode.name = "hoverNode"
+            boxNode.position =  SCNVector3Make(0, 0  , -5)
             boxNode.opacity = 0.7
             hoverNode = boxNode
             parentNode.addChildNode(boxNode)
