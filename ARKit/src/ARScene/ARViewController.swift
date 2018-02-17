@@ -125,7 +125,7 @@ enum DisplayMode {
 
     }
     
-    public func createVerticalPlaneWithTexture(textureImage: UIImage!) {
+    public func createVerticalPlaneWithTexture(textureImage: UIImage!, portrait: Bool = true) {
         //get the scene the model is stored in
         let modelScene = SCNScene(named:"Models.scnassets/furniture/portrait.scn")
         //get the model from the root node of the scn file and scale it down
@@ -140,6 +140,17 @@ enum DisplayMode {
         let config = ARWorldTrackingConfiguration()
         config.planeDetection = .vertical
         self.sessionConfiguration = config
+        if !portrait {
+            //rotate model.
+            let translation = SCNMatrix4MakeTranslation(0, -1, 0)
+            let rotation = SCNMatrix4MakeRotation(Float.pi / 2, 0, 0, 1)
+            let transform = SCNMatrix4Mult(translation, rotation)
+            material.diffuse.contentsTransform = transform
+
+            let oldTransform = modelNode.transform
+            let modelRotation = SCNMatrix4MakeRotation(-Float.pi / 2, 0, 0, 1)
+            modelNode.transform = SCNMatrix4Mult(modelRotation, oldTransform)
+        }
 
     }
     

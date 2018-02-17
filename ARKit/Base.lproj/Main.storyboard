@@ -32,12 +32,20 @@
                                     <action selector="showPlaneScene:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mF1-cW-GdF"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l9O-AO-JAs">
-                                <rect key="frame" x="113" y="252" width="149" height="64"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ci-B4-Itb">
+                                <rect key="frame" x="113" y="324" width="149" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Test Pictures"/>
+                                <state key="normal" title="Portrait Art"/>
                                 <connections>
-                                    <action selector="showVerticalPlaneScene:" destination="BYZ-38-t0r" eventType="touchUpInside" id="14b-so-cXP"/>
+                                    <action selector="showVerticalPlaneScene:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j6z-t8-FN2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l9O-AO-JAs">
+                                <rect key="frame" x="113" y="218" width="149" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Landscape Art"/>
+                                <connections>
+                                    <action selector="showVerticalPlaneWithLandscapeScene:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vTQ-Cc-QKZ"/>
                                 </connections>
                             </button>
                         </subviews>
