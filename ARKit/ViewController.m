@@ -37,7 +37,8 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"ARScene" bundle:nil];
     ARViewController *controller = (ARViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ARScene"];
     [controller createSceneWithAssetWithAssetFilePath:@"Models.scnassets/furniture/sofa.scn"];
-    [self showViewController:controller sender:nil];
+//    [self showViewController:controller sender:nil];
+    [self presentViewController:controller animated:true completion:nil];
 }
 
 
@@ -46,7 +47,8 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"ARScene" bundle:nil];
     ARViewController *controller = (ARViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ARScene"];
     [controller createPlaneWithTextureWithTextureImage:[UIImage imageNamed:@"rug-2"]];
-    [self showViewController:controller sender:nil];
+  //  [self showViewController:controller sender:nil];
+    [self presentViewController:controller animated:true completion:nil];
 
 }
 
@@ -56,8 +58,8 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"ARScene" bundle:nil];
     ARViewController *controller = (ARViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ARScene"];
     [controller createVerticalPlaneWithTextureWithTextureImage:[UIImage imageNamed:@"korber"]];
-    [self showViewController:controller sender:nil];
-    
+//    [self showViewController:controller sender:nil];
+    [self presentViewController:controller animated:true completion:nil];
 }
 
 

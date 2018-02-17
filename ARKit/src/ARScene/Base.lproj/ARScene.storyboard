@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14092" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14081.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,7 +14,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="ARScene" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ARViewController" customModule="seelyPOC" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ARScene" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ARViewController" customModule="ARKitPOC" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -102,11 +102,25 @@
                                     </mask>
                                 </variation>
                             </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dpt-YI-n4L">
+                                <rect key="frame" x="15" y="118" width="280" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="0.3495826199" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="Yar-Ci-s8e"/>
+                                    <constraint firstAttribute="height" constant="60" id="fkP-gN-yrF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="shadowColor" red="0.18605250634517767" green="0.18605250634517767" blue="0.18605250634517767" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="shadowOffset" width="1" height="-1"/>
+                            </label>
                         </subviews>
                         <constraints>
                             <constraint firstItem="g26-d9-aeH" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="1TH-bq-Dtg"/>
                             <constraint firstAttribute="trailing" secondItem="oWx-7z-gca" secondAttribute="trailing" id="2FP-Vz-rAY"/>
                             <constraint firstItem="g26-d9-aeH" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="1286" id="3KA-jI-Cvn"/>
+                            <constraint firstItem="Gzo-rX-WDg" firstAttribute="top" secondItem="Dpt-YI-n4L" secondAttribute="bottom" constant="178" id="6nP-Hf-WuK"/>
                             <constraint firstItem="g26-d9-aeH" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="7ag-6a-iLq"/>
                             <constraint firstAttribute="bottom" secondItem="oWx-7z-gca" secondAttribute="bottom" id="7iG-Do-DQI"/>
                             <constraint firstAttribute="bottom" secondItem="oWx-7z-gca" secondAttribute="bottom" id="B6f-In-o6T"/>
@@ -125,9 +139,11 @@
                                 <variation key="heightClass=regular" constant="656"/>
                             </constraint>
                             <constraint firstItem="Gzo-rX-WDg" firstAttribute="top" secondItem="Gsn-mo-Urz" secondAttribute="bottom" constant="79" id="TpS-4B-uo2"/>
+                            <constraint firstAttribute="trailing" secondItem="Dpt-YI-n4L" secondAttribute="trailing" constant="80" id="TrJ-tt-o8q"/>
                             <constraint firstAttribute="bottom" secondItem="g26-d9-aeH" secondAttribute="bottom" id="X5L-wl-bwI"/>
                             <constraint firstItem="Gzo-rX-WDg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bVA-rd-wew"/>
                             <constraint firstItem="g26-d9-aeH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="cJK-d5-jV6"/>
+                            <constraint firstItem="Dpt-YI-n4L" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cQf-TD-uDe"/>
                             <constraint firstItem="g26-d9-aeH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="688" id="doM-Xu-Sm8"/>
                             <constraint firstItem="Gzo-rX-WDg" firstAttribute="leading" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hwG-iM-nQe"/>
                             <constraint firstItem="g26-d9-aeH" firstAttribute="top" secondItem="Gzo-rX-WDg" secondAttribute="bottom" constant="72" id="ib9-A6-A4B">
@@ -230,18 +246,19 @@
                     <connections>
                         <outlet property="closeButton" destination="Gsn-mo-Urz" id="JPt-cp-wpS"/>
                         <outlet property="sceneView" destination="oWx-7z-gca" id="tuQ-bE-3rF"/>
-                        <outlet property="searchingLabel" destination="Gzo-rX-WDg" id="z8I-ka-zIF"/>
+                        <outlet property="searchingLabel" destination="Gzo-rX-WDg" id="GFw-bL-UxA"/>
+                        <outlet property="sessionStatusLabel" destination="Dpt-YI-n4L" id="RvP-Rh-Mq9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="RnA-jb-fdi" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-81.2807881773399" y="-7.2000000000000002"/>
+            <point key="canvasLocation" x="-82.400000000000006" y="-7.389162561576355"/>
         </scene>
         <!--Tool View Controller-->
         <scene sceneID="D3T-IU-qVW">
             <objects>
-                <viewController id="XmZ-w9-aCd" customClass="ARToolViewController" customModule="seelyPOC" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XmZ-w9-aCd" customClass="ARToolViewController" customModule="ARKitPOC" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="eVI-dt-a6I">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

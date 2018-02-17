@@ -40,6 +40,7 @@ enum DisplayMode {
     @IBOutlet weak var searchingLabel: UILabel!
     @IBOutlet var sceneView : ARSCNView!
     @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var sessionStatusLabel: UILabel!
     var modelNode: SCNNode!
     var hoverNode: SCNNode!
     var nodes = [SCNNode]()
@@ -85,6 +86,12 @@ enum DisplayMode {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if displayMode == .verticalPlane{
+            self.searchingLabel.text = "scan the wall"
+
+        }else{
+            self.searchingLabel.text = "scan the floor"
+        }
         reset()
     }
     
@@ -114,6 +121,7 @@ enum DisplayMode {
         let config = ARWorldTrackingConfiguration()
         config.planeDetection = .horizontal
         self.sessionConfiguration = config
+       
 
     }
     
@@ -145,11 +153,13 @@ enum DisplayMode {
         let config = ARWorldTrackingConfiguration()
         config.planeDetection = .horizontal
         self.sessionConfiguration = config
+     
     }
     
     private func createScene(){
         sceneView.delegate = self
         sceneView.session = session
+        sceneView.session.delegate = self
         // Use the default lighting so that our objects are illuminated
         sceneView.automaticallyUpdatesLighting = true
         sceneView.autoenablesDefaultLighting = true

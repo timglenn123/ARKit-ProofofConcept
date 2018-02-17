@@ -32,9 +32,12 @@ extension ARViewController: UIGestureRecognizerDelegate {
     }
 
     @objc func handlePinch(_ gesture: UIPinchGestureRecognizer){
+  
+        
         if !objectFrozen {
             switch gesture.state {
             case .changed:
+                guard nodes.count > 0 else { return }
                 let pinchScaleX = Float(gesture.scale) * (nodes[0].scale.x)
                 let pinchScaleY =  Float(gesture.scale) * (nodes[0].scale.y)
                 let pinchScaleZ =  Float(gesture.scale) * (nodes[0].scale.z)
@@ -48,11 +51,14 @@ extension ARViewController: UIGestureRecognizerDelegate {
     
     @objc func handlePan(_ gesture: UIPanGestureRecognizer){
         //find the location in the view
+        guard focalNode != nil else { return }
+  
         if !objectFrozen {
             let location = gesture.location(in: sceneView)
             guard let result = sceneView.hitTest(location, types: .existingPlane).first else { return }
             
             if gesture.state == .changed {
+                guard nodes.count > 0 else { return }
                 let transform = result.worldTransform
                 let newPosition = float3(transform.columns.3.x, transform.columns.3.y ,transform.columns.3.z )
                 nodes[0].runAction(SCNAction.move(to: SCNVector3Make(newPosition.x, newPosition.y, newPosition.z), duration: 0.3))
@@ -61,6 +67,8 @@ extension ARViewController: UIGestureRecognizerDelegate {
     }
     
     @objc func handleRotation(_ gesture: UIRotationGestureRecognizer){
+        guard focalNode != nil else { return }
+        guard nodes.count > 0 else { return }
         if !objectFrozen {
             switch gesture.state {
             case .began:
@@ -78,6 +86,7 @@ extension ARViewController: UIGestureRecognizerDelegate {
     @objc func handleTap(_ gesture: UITapGestureRecognizer){
         // make sure we've found the floor
         guard focalNode != nil else { return }
+ 
         //see if we tapped on a plane where a model can be placed
         let results = sceneView.hitTest(screenCenter, types: .existingPlane)
         guard let transform = results.first?.worldTransform else { return }

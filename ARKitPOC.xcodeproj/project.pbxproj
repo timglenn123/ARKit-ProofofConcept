@@ -21,6 +21,7 @@
 		B27E34641FF95AA100929E35 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27E345C1FF95AA100929E35 /* ARViewController.swift */; };
 		B27E34651FF95AA100929E35 /* ARViewController+ARSCNViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27E345D1FF95AA100929E35 /* ARViewController+ARSCNViewDelegate.swift */; };
 		B27E34661FF95AA100929E35 /* ARViewController+GestureRecognizerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27E345E1FF95AA100929E35 /* ARViewController+GestureRecognizerDelegate.swift */; };
+		B2C7AE4B20379F650073E99A /* ARViewController+ARSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C7AE4A20379F650073E99A /* ARViewController+ARSessionDelegate.swift */; };
 		B2DEBB6D2006870A000F7CD8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2DEBB6C2006870A000F7CD8 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		B27E345C1FF95AA100929E35 /* ARViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
 		B27E345D1FF95AA100929E35 /* ARViewController+ARSCNViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ARViewController+ARSCNViewDelegate.swift"; sourceTree = "<group>"; };
 		B27E345E1FF95AA100929E35 /* ARViewController+GestureRecognizerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ARViewController+GestureRecognizerDelegate.swift"; sourceTree = "<group>"; };
+		B2C7AE4A20379F650073E99A /* ARViewController+ARSessionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARViewController+ARSessionDelegate.swift"; sourceTree = "<group>"; };
 		B2DEBB6C2006870A000F7CD8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		B2DEBB6E2006881F000F7CD8 /* ARKitPOC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ARKitPOC-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,6 +114,7 @@
 				B27E345C1FF95AA100929E35 /* ARViewController.swift */,
 				B27E345D1FF95AA100929E35 /* ARViewController+ARSCNViewDelegate.swift */,
 				B27E345E1FF95AA100929E35 /* ARViewController+GestureRecognizerDelegate.swift */,
+				B2C7AE4A20379F650073E99A /* ARViewController+ARSessionDelegate.swift */,
 			);
 			path = ARScene;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				B27E342C1FF6C85100929E35 /* ViewController.m in Sources */,
 				B27E34371FF6C85100929E35 /* main.m in Sources */,
 				B27E34631FF95AA100929E35 /* FocalNode.swift in Sources */,
+				B2C7AE4B20379F650073E99A /* ARViewController+ARSessionDelegate.swift in Sources */,
 				B27E34651FF95AA100929E35 /* ARViewController+ARSCNViewDelegate.swift in Sources */,
 				B27E34291FF6C85100929E35 /* AppDelegate.m in Sources */,
 				B27E34601FF95AA100929E35 /* ARToolViewController.swift in Sources */,
